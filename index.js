@@ -1,5 +1,17 @@
 /* Your Code Here */
-
+// const employee = ["Gray", "Worm", "Security", 1]
+function createEmployeeRecord(arr){
+    const records = arr.map(employee => ({
+        firstName : employee[0],
+        lastName : employee[1],
+        title : employee[2],
+        payRate : employee[3],
+        timeInEvents : [],
+        timeOutEvents : []
+    } ))
+    
+    return records
+}
 /*
  We're giving you this function. Take a look at it, you might see some usage
  that's new and different. That's because we're avoiding a well-known, but
@@ -21,3 +33,4 @@ const allWagesFor = function () {
     return payable
 }
 
+createEmployeeRecord(employee)
