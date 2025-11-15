@@ -16,6 +16,19 @@ function createEmployeeRecords(employees) {
     const records = employees.map(employee => createEmployeeRecord(employee))
     return records
 }
+
+function createTimeInEvent(dateStamp) {
+    const [date,hour] = dateStamp.split(" ")
+    
+    const timeIn =  {
+        type: "TimeIn",
+        hour: parseInt(hour),
+        date 
+    }
+    this.timeInEvents.push(timeIn)
+    console.log("this is: ",this)
+    return this
+}
 /*
  We're giving you this function. Take a look at it, you might see some usage
  that's new and different. That's because we're avoiding a well-known, but
@@ -38,3 +51,4 @@ const allWagesFor = function () {
 }
 
 // createEmployeeRecord(employee)
+// createTimeInEvent("2002-25-12 1642")
