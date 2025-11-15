@@ -1,15 +1,19 @@
 /* Your Code Here */
 // const employee = ["Gray", "Worm", "Security", 1]
-function createEmployeeRecord(arr){
-    const records = arr.map(employee => ({
+function createEmployeeRecord(employee){
+    const employeeRecord = {
         firstName : employee[0],
-        lastName : employee[1],
+        familyName : employee[1],
         title : employee[2],
-        payRate : employee[3],
+        payPerHour : employee[3],
         timeInEvents : [],
         timeOutEvents : []
-    } ))
+    }
     
+    return employeeRecord
+}
+function createEmployeeRecords(employees) {
+    const records = employees.map(employee => createEmployeeRecord(employee))
     return records
 }
 /*
@@ -33,4 +37,4 @@ const allWagesFor = function () {
     return payable
 }
 
-createEmployeeRecord(employee)
+// createEmployeeRecord(employee)
