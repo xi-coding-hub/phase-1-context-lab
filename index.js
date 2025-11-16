@@ -29,6 +29,34 @@ function createTimeInEvent(dateStamp) {
     console.log("this is: ",this.timeInEvents)
     return this
 }
+
+function createTimeOutEvent(dateStamp) {
+    const [date,hour] = dateStamp.split(" ")
+    const timeOut = {
+        type: "TimeOut",
+        hour: parseInt(hour),
+        date
+    }
+    this.timeOutEvents.push(timeOut)
+    return this
+}
+
+function hoursWorkedOnDate(date) {
+    const timeIn = this.timeInEvents.find(timeInEvent => timeInEvent.date === date)
+    const timeOut = this.timeOutEvents.find(timeOutEvent => timeOutEvent.date === date)
+    
+    const timeFinish = parseInt(timeOut.hour) 
+    const timeStart = parseInt(timeIn.hour)
+    const workHours = (timeFinish - timeStart)/100
+    
+    return workHours
+    
+    
+    
+   
+
+}
+
 /*
  We're giving you this function. Take a look at it, you might see some usage
  that's new and different. That's because we're avoiding a well-known, but
