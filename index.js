@@ -63,8 +63,22 @@ function hoursWorkedOnDate(date) {
     const employeeMatched = employeeRecords.find(employeeRecord => employeeRecord.firstName === firstName)
     return employeeMatched
  }
-   
 
+   
+function calculatePayroll(employees){
+    const totalWages = employees.reduce((total,employee)=>{
+        const wagesArrayPerEmployee = employee.timeInEvents.map(workDay =>{
+            return wagesEarnedOnDate.call(employee,workDay.date)
+        }) 
+        
+        const totalPerEmployee = wagesArrayPerEmployee.reduce((accumulator,dayPay) => {return(accumulator+dayPay)},0)
+        // for single line code to return the value, we can use different format as below, without using 'return' keyword and '{}' : 
+        // const totalPerEmployee = wagesArrayPerEmployee.reduce((accumulator,dayPay) => (accumulator+dayPay),0)
+        return (total + totalPerEmployee)
+    },0)
+    return totalWages
+
+}
 
 
 /*
