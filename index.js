@@ -20,24 +20,24 @@ function createEmployeeRecords(employees) {
 function createTimeInEvent(dateStamp) {
     const [date,hour] = dateStamp.split(" ")
     
-    const timeIn =  {
+    const newTimeIn =  {
         type: "TimeIn",
         hour: parseInt(hour),
         date 
     }
-    this.timeInEvents.push(timeIn)
+    this.timeInEvents.push(newTimeIn)
     console.log("this is: ",this.timeInEvents)
     return this
 }
 
 function createTimeOutEvent(dateStamp) {
     const [date,hour] = dateStamp.split(" ")
-    const timeOut = {
+    const newTimeOut = {
         type: "TimeOut",
         hour: parseInt(hour),
         date
     }
-    this.timeOutEvents.push(timeOut)
+    this.timeOutEvents.push(newTimeOut)
     return this
 }
 
@@ -50,12 +50,22 @@ function hoursWorkedOnDate(date) {
     const workHours = (timeFinish - timeStart)/100
     
     return workHours
-    
-    
-    
+ }   
+
+ function wagesEarnedOnDate(date) {
+    const hours = hoursWorkedOnDate.call(this, date) // refer to 0neNOte for the explaination of the code. 
+    const dayWages = hours * this.payPerHour
+    console.log(dayWages)
+    return dayWages
+ }
+
+ function findEmployeeByFirstName(employeeRecords,firstName) {
+    const employeeMatched = employeeRecords.find(employeeRecord => employeeRecord.firstName === firstName)
+    return employeeMatched
+ }
    
 
-}
+
 
 /*
  We're giving you this function. Take a look at it, you might see some usage
