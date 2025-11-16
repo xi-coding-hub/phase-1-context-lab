@@ -26,7 +26,7 @@ function createTimeInEvent(dateStamp) {
         date 
     }
     this.timeInEvents.push(timeIn)
-    console.log("this is: ",this)
+    console.log("this is: ",this.timeInEvents)
     return this
 }
 /*
